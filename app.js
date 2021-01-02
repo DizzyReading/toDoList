@@ -13,12 +13,13 @@ app.get("/", function(req, res) {
 
   if (currentDay === 6 || currentDay === 0) {
     day = "Weekend";
-    res.sendFile(__dirname + "weekend.hmtl");
   } else {
-    res.sendFile(__dirname + "weekday.html");
     day = "Weekday";
-
   }
+
+  res.render("list", {
+    kindOfDay: day
+  });
 
 });
 
