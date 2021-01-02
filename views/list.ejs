@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>To Do List</title>
-  </head>
-  <body>
-<h1>It's a <%= kindOfDay %>!</h1>
+
+<head>
+  <meta charset="utf-8">
+  <title>To Do List</title>
+</head>
+
+<body>
+
+  <% if(kindOfDay === "Saturday" || kindOfDay === "Sunday"){ %>
+  <h1 style="color: orange">It's a <%= kindOfDay %>!</h1>
+  <p> Relax and enjoy!</p>
+  <% } else { %>
+  <h1 style="color: blue">It's a <%= kindOfDay %>!</h1>
+  <p>Why are you not working!</p>
+  <% } %>
+  <!-- <h1>It's a <%= kindOfDay %>!</h1> -->
 
 
 
 
 
-  </body>
+</body>
+
 </html>
