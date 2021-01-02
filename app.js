@@ -3,24 +3,26 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+app.set("view engine", "ejs");
+
 app.get("/", function(req, res) {
 
   const today = new Date();
   const currentDay = today.getDay();
+  var day = "";
 
-  if(currentDay === 6 || currentDay === 0){
-      res.write("<h1>Yay it's the weekend!</h1>");
-      res.write("<p>Relax (for now)<p>")
-    } else {
-      res.write("<h1>Boo! You have work!</h1>");
-      res.write("<p> Why are you not working? <p> ")
-      res.send();
+  if (currentDay === 6 || currentDay === 0) {
+    day = "Weekend";
+    res.sendFile(__dirname + "weekend.hmtl");
+  } else {
+    res.sendFile(__dirname + "weekday.html");
+    day = "Weekday";
 
-    }
+  }
 
 });
 
-    app.listen("3000", function() {
-      console.log("Server is running on port 3000 . . .");
+app.listen("3000", function() {
+  console.log("Server is running on port 3000 . . .");
 
-    })
+})
